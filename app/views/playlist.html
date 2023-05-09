@@ -1,0 +1,12 @@
+#{extends 'main.html' /}
+#{set title:'Playlist' /}
+
+#{menu id:"dashboard"/}
+
+<div class="content box">
+  <h1 class="title">
+    ${playlist.title}
+  </h1>
+  #{listsongs playlist:playlist /}
+  #{addsong playlist:playlist /}
+</div>

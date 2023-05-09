@@ -1,0 +1,67 @@
+Song(s1):
+  title: Piano Sonata No. 3
+  artist: Beethoven
+  duration: 5
+Song(s2):
+  title: Piano Sonata No. 7
+  artist: Beethoven
+  duration: 6
+Song(s3):
+  title: Piano Sonata No. 10
+  artist: Beethoven
+  duration: 8
+Song(s4):
+  title: Piano Concerto No. 27
+  artist: Beethoven
+  duration: 8
+Song(s5):
+  title: Piano Concertos No. 17
+  artist: Beethoven
+Song(s6):
+  title: Piano Concerto No. 10
+  artist: Beethoven
+  duration: 12
+Song(s7):
+  title: Opus 120 Thirty-three variations on a waltz by Diabelli in C major
+  artist: Beethoven
+Song(s8):
+  title: Opus 120 Thirty-three variations on a waltz by Diabelli in C major
+  artist: Beethoven
+
+Playlist(p1):
+  title: Bethoven Sonatas
+  duration: 19
+  songs:
+  - s1
+  - s2
+  - s3
+
+Playlist(p2):
+  title: Bethoven Concertos
+  duration: 23
+  songs:
+  - s4
+  - s5
+  - s6
+
+Playlist(p3):
+  title: Beethoven Variations
+  duration: 26
+  songs:
+  - s7
+  - s8
+
+Member(m1):
+  firstname: homer
+  lastname: simpson
+  email: homer@simpson.com
+  password: secret
+  playlists:
+    - p1
+    - p2
+
+Member(m2):
+  firstname: marge
+  lastname: simpson
+  email: marge@simpson.com
+  password: secret

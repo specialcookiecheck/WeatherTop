@@ -1,0 +1,27 @@
+<form action="/playlists/${_playlist.id}/addsong" method="POST">
+  <div class="columns">
+    <div class="field column">
+      <label class="label">Title</label>
+      <div class="control">
+        <input class="input" placeholder="Title" type="text" name="title">
+      </div>
+    </div>
+    <div class="field column">
+      <label class="label">Artist</label>
+      <div class="control">
+        <input class="input" placeholder="Artist" type="text" name="artist">
+      </div>
+    </div>
+    <div class="field column">
+      <label class="label">Duration</label>
+      <div class="control">
+        <input class="input" placeholder="Duration" type="number" name="duration">
+      </div>
+    </div>
+  </div>
+  <div class="field mt-4">
+    <div class="control">
+      <button class="button is-info">Add Song</button>
+    </div>
+  </div>
+</form>
