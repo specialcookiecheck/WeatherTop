@@ -28,6 +28,11 @@ Song(s8):
   title: Opus 120 Thirty-three variations on a waltz by Diabelli in C major
   artist: Beethoven
 
+Reading(r1):
+  location: Dundalk
+  weather: sunny
+  windspeed: 8
+
 Playlist(p1):
   title: Bethoven Sonatas
   duration: 19
@@ -51,6 +56,11 @@ Playlist(p3):
   - s7
   - s8
 
+Station(s1):
+  location: Dundalk
+  readings:
+    - r1
+
 Member(m1):
   firstname: homer
   lastname: simpson
@@ -65,3 +75,11 @@ Member(m2):
   lastname: simpson
   email: marge@simpson.com
   password: secret
+
+Member(m3):
+  firstname: Vincent
+  lastname: admin
+  email: admin@admin.com
+  password: secret
+  stations:
+    - s1

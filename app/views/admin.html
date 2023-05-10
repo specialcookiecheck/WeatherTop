@@ -34,5 +34,32 @@
     </tr>
     #{/list}
     </tbody>
+
+    <thead>
+    <tr>
+      <th>ID </th>
+      <th>Location</th>
+      <th>Weather</th>
+      <th>Windspeed</th>
+    </tr>
+    </thead>
+    <tbody>
+    #{list items:readings, as:'reading'}
+    <tr>
+      <td>
+        ${reading.id}
+      </td>
+      <td>
+        ${reading.location}
+      </td>
+      <td>
+        ${reading.weather}
+      </td>
+      <td>
+        ${reading.windspeed}
+      </td>
+    </tr>
+    #{/list}
+    </tbody>
   </table>
 </div>

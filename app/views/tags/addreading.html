@@ -1,0 +1,27 @@
+<form action="/stations/${_station.id}/addreading" method="POST">
+  <div class="columns">
+    <div class="field column">
+      <label class="label">Location</label>
+      <div class="control">
+        <input class="input" placeholder="Title" type="text" name="location">
+      </div>
+    </div>
+    <div class="field column">
+      <label class="label">Weather</label>
+      <div class="control">
+        <input class="input" placeholder="Artist" type="text" name="weather">
+      </div>
+    </div>
+    <div class="field column">
+      <label class="label">Windspeed</label>
+      <div class="control">
+        <input class="input" placeholder="Duration" type="number" name="windspeed">
+      </div>
+    </div>
+  </div>
+  <div class="field mt-4">
+    <div class="control">
+      <button class="button is-info">Add Reading</button>
+    </div>
+  </div>
+</form>
