@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a69ff947-25cf-4549-aa31-309266f48f29" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/conf/data.yml" beforeDir="false" afterPath="$PROJECT_DIR$/conf/data.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playlist.iws" beforeDir="false" afterPath="$PROJECT_DIR$/playlist.iws" afterDir="false" />
-    </list>
+    <list default="true" id="a69ff947-25cf-4549-aa31-309266f48f29" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +55,7 @@
       <workItem from="1683623392914" duration="725000" />
       <workItem from="1683642799472" duration="2397000" />
       <workItem from="1683698331522" duration="613000" />
-      <workItem from="1683705940311" duration="16097000" />
+      <workItem from="1683705940311" duration="16290000" />
     </task>
     <servers />
   </component>
