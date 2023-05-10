@@ -1,65 +1,25 @@
-Song(s1):
-  title: Piano Sonata No. 3
-  artist: Beethoven
-  duration: 5
-Song(s2):
-  title: Piano Sonata No. 7
-  artist: Beethoven
-  duration: 6
-Song(s3):
-  title: Piano Sonata No. 10
-  artist: Beethoven
-  duration: 8
-Song(s4):
-  title: Piano Concerto No. 27
-  artist: Beethoven
-  duration: 8
-Song(s5):
-  title: Piano Concertos No. 17
-  artist: Beethoven
-Song(s6):
-  title: Piano Concerto No. 10
-  artist: Beethoven
-  duration: 12
-Song(s7):
-  title: Opus 120 Thirty-three variations on a waltz by Diabelli in C major
-  artist: Beethoven
-Song(s8):
-  title: Opus 120 Thirty-three variations on a waltz by Diabelli in C major
-  artist: Beethoven
-
 Reading(r1):
-  location: Dundalk
+  location: Moorland
   weather: sunny
   windspeed: 8
 
-Playlist(p1):
-  title: Bethoven Sonatas
-  duration: 19
-  songs:
-  - s1
-  - s2
-  - s3
+Reading(r2):
+  location: Town centre
+  weather: fog
+  windspeed: 6
 
-Playlist(p2):
-  title: Bethoven Concertos
-  duration: 23
-  songs:
-  - s4
-  - s5
-  - s6
+Reading(r3):
+  location: Blackrock
+  weather: Rain
+  windspeed: 9
 
-Playlist(p3):
-  title: Beethoven Variations
-  duration: 26
-  songs:
-  - s7
-  - s8
 
 Station(s1):
-  location: Dundalk
+  name: Dundalk
   readings:
     - r1
+    - r2
+    - r3
 
 Member(m1):
   firstname: homer

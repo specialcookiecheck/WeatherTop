@@ -12,12 +12,12 @@ import play.db.jpa.Model;
 @Entity
 public class Station extends Model
 {
-    public String location;
+    public String name;
     @OneToMany(cascade = CascadeType.ALL)
     public List<Reading> readings = new ArrayList<Reading>();
 
-    public Station(String location)
+    public Station(String name)
     {
-        this.location = location;
+        this.name = name;
     }
 }
