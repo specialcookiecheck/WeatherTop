@@ -4,17 +4,24 @@ import javax.persistence.Entity;
 
 import play.db.jpa.Model;
 
+import java.time.LocalDateTime;
+
 @Entity
 public class Reading extends Model
 {
-    public String location;
-    public String weather;
-    public int windspeed;
+    public String dateTime;
+    public int code;
+    public float temperature;
+    public float windSpeed;
+    public int windDirection;
+    public int pressure;
 
-    public Reading(String location, String weather, int windspeed)
-    {
-        this.location = location;
-        this.weather = weather;
-        this.windspeed = windspeed;
+    public Reading(String dateTime, int code, float temperature, float windSpeed, int windDirection, int pressure) {
+        this.dateTime = dateTime;
+        this.code = code;
+        this.temperature = temperature;
+        this.windSpeed = windSpeed;
+        this.windDirection = windDirection;
+        this.pressure = pressure;
     }
 }

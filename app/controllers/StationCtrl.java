@@ -1,5 +1,6 @@
 package controllers;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import models.Station;
@@ -20,16 +21,17 @@ public class StationCtrl extends Controller
     {
         Station station = Station.findById(id);
         Reading reading = Reading.findById(readingid);
-        Logger.info ("Removing" + reading.location);
+        Logger.info ("Removing reading" + reading.id);
         station.readings.remove(reading);
         station.save();
         reading.delete();
         render("station.html", station);
     }
 
-    public static void addReading(Long id, String location, String weather, int windspeed)
+    public void addReading(Long id, int code, float temperature, float windSpeed, int windDirection, int pressure)
     {
-        Reading reading = new Reading(location, weather, windspeed);
+        String dateTime = LocalDateTime.now().toString();
+        Reading reading = new Reading(dateTime, code, temperature, windSpeed, windDirection, pressure);
         Station station = Station.findById(id);
         station.readings.add(reading);
         station.save();

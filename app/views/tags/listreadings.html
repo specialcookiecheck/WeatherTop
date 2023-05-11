@@ -1,9 +1,12 @@
 <table class="table">
   <thead>
   <tr>
-    <th>Location</th>
-    <th>Weather</th>
+    <th>Submitted on</th>
+    <th>Weather code</th>
+    <th>Temperature</th>
     <th>Wind Speed</th>
+    <th>Wind Direction</th>
+    <th>Pressure</th>
     <th></th>
   </tr>
   </thead>
@@ -11,13 +14,22 @@
   #{list items:_station.readings, as:'reading'}
   <tr>
     <td>
-      ${reading.location}
+      ${reading.dateTime}
     </td>
     <td>
-      ${reading.weather}
+      ${reading.code}
     </td>
     <td>
-      ${reading.windspeed}
+      ${reading.temperature}
+    </td>
+    <td>
+      ${reading.windSpeed}
+    </td>
+    <td>
+      ${reading.windDirection}
+    </td>
+    <td>
+      ${reading.pressure}
     </td>
     <td>
       <a href="/stations/${_station.id}/deletereading/${reading.id}"><span class="icon has-text-danger">
@@ -28,3 +40,4 @@
   #{/list}
   </tbody>
 </table>
+

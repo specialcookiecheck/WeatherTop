@@ -10,28 +10,38 @@
   <table class="ui fixed table">
     <thead>
     <tr>
-      <th>ID </th>
-      <th>Location</th>
-      <th>Weather</th>
-      <th>Windspeed</th>
+      <th>Submitted on</th>
+      <th>Weather code</th>
+      <th>Temperature</th>
+      <th>Wind Speed</th>
+      <th>Wind Direction</th>
+      <th>Pressure</th>
     </tr>
     </thead>
     <tbody>
     #{list items:readings, as:'reading'}
+
     <tr>
       <td>
-        ${reading.id}
+        ${reading.dateTime}
       </td>
       <td>
-        ${reading.location}
+        ${reading.code}
       </td>
       <td>
-        ${reading.weather}
+        ${reading.temperature}
       </td>
       <td>
-        ${reading.windspeed}
+        ${reading.windSpeed}
+      </td>
+      <td>
+        ${reading.windDirection}
+      </td>
+      <td>
+        ${reading.pressure}
       </td>
     </tr>
+
     #{/list}
     </tbody>
   </table>

@@ -1,21 +1,33 @@
 <form action="/stations/${_station.id}/addreading" method="POST">
   <div class="columns">
     <div class="field column">
-      <label class="label">Location</label>
+      <!-- <label class="label">Add a new reading</label> -->
       <div class="control">
-        <input class="input" placeholder="Title" type="text" name="location">
+        <input class="input" placeholder="Weather code" type="text" name="code">
       </div>
     </div>
     <div class="field column">
-      <label class="label">Weather</label>
+      <!-- <label class="label"></label> -->
       <div class="control">
-        <input class="input" placeholder="Artist" type="text" name="weather">
+        <input class="input" placeholder="Temperature" type="number" name="temperature">
       </div>
     </div>
     <div class="field column">
-      <label class="label">Windspeed</label>
+      <!-- <label class="label">Windspeed</label> -->
       <div class="control">
-        <input class="input" placeholder="Duration" type="number" name="windspeed">
+        <input class="input" placeholder="Wind speed" type="number" name="windSpeed">
+      </div>
+    </div>
+    <div class="field column">
+      <!-- <label class="label">Windspeed</label> -->
+      <div class="control">
+        <input class="input" placeholder="Wind direction" type="number" name="windDirection">
+      </div>
+    </div>
+    <div class="field column">
+      <!-- <label class="label">Windspeed</label> -->
+      <div class="control">
+        <input class="input" placeholder="Pressure" type="number" name="pressure">
       </div>
     </div>
   </div>
