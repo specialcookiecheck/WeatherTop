@@ -14,7 +14,7 @@
   #{list items:_station.readings, as:'reading'}
   <tr>
     <td>
-      ${reading.dateTime}
+      ${reading.getDateTimeFormatted()}
     </td>
     <td>
       ${reading.code}

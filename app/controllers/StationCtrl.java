@@ -30,8 +30,8 @@ public class StationCtrl extends Controller
 
     public void addReading(Long id, int code, float temperature, float windSpeed, int windDirection, int pressure)
     {
-        String dateTime = LocalDateTime.now().toString();
-        Reading reading = new Reading(dateTime, code, temperature, windSpeed, windDirection, pressure);
+        String date = LocalDateTime.now().toString();
+        Reading reading = new Reading(date, code, temperature, windSpeed, windDirection, pressure);
         Station station = Station.findById(id);
         station.readings.add(reading);
         station.save();

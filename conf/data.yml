@@ -1,5 +1,5 @@
 Reading(r1):
-  dateTime: 2023-05-11 09:58:09
+  date: 2021-01-19 08:31:00
   code: 800
   temperature: 0.5
   windSpeed: 3.5
@@ -7,7 +7,7 @@ Reading(r1):
   pressure: 1001
 
 Reading(r2):
-  dateTime: 2021-01-20 09:34:00
+  date: 2021-01-20 09:34:00
   code: 600
   temperature: 6.0
   windSpeed: 2
@@ -15,7 +15,7 @@ Reading(r2):
   pressure: 1004
 
 Reading(r3):
-  dateTime: 2021-01-20 10:31:00
+  date: 2021-01-20 10:31:00
   code: 700
   temperature: 8.0
   windSpeed: 1
@@ -23,7 +23,7 @@ Reading(r3):
   pressure: 1000
 
 Reading(r4):
-  dateTime: 2021-01-19 09:31:00
+  date: 2021-01-19 09:31:00
   code: 200
   temperature: 0.5
   windSpeed: 3.5
@@ -34,7 +34,7 @@ Reading(r4):
 Station(s1):
   name: Tramore
   latitude: 52.1623500
-  longtitude: -7.1524400
+  longitude: -7.1524400
   readings:
     - r1
     - r2
@@ -42,7 +42,7 @@ Station(s1):
 Station(s2):
   name: Dunmore
   latitude: 52.1499994
-  longtitude: -6.9833294
+  longitude: -6.9833294
   readings:
     - r3
     - r4

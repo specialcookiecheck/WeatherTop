@@ -5,12 +5,37 @@
 
 #{list items:stations, as:'station'}
 <div class="content box">
-  <h1 class="title">
-    ${station.name}
-  </h1>
-  <p>
-    Location: ${station.name}
-  </p>
+  <table class="table">
+    <thead class="title">
+    <tr>
+      <th>${station.name}</th>
+      <th>Weather</th>
+      <th>Temperature</th>
+      <th>Wind</th>
+      <th>Pressure</th>
+      </thead>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        Lat: ${station.latitude}<br>
+        Lon: ${station.longitude}
+      </td>
+      <td>${station.getLastReading().getWeather()}</td>
+      <td>
+        ${station.getLastReading().temperature} (C)
+        ${station.getLastReading().getFahrenheit()} (F)
+      </td>
+      <td>
+        ${station.getLastReading().getBeaufort()} bft<br>
+        ${station.getLastReading().windSpeed}<br>
+        ${station.getLastReading().windDirection}
+      </td>
+      <td>${station.getLastReading().pressure}</td>
+    </tr>
+    </tbody>
+  </table>
   <a href="/stations/${station.id}" class="icon has-text-primary">
     <i class="fas fa-folder"></i>
   </a>
@@ -20,4 +45,7 @@
 </div>
 #{/list}
 
+<h2 class="subtitle">
+  Add a new Station
+</h2>
 #{addstation /}
