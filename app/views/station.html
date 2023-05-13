@@ -4,17 +4,44 @@
 #{menu id:"dashboard"/}
 
 <div class="content box">
-  <h1 class="title">
-    ${station.name}
-  </h1>
-  <p class="subtitle is-6">
-    Lat: ${station.latitude}<br>
-    Lon: ${station.longitude}
-  </p>
-  #{listreadings station:station /}
+  <table class="table">
+    <thead class="title">
+    <tr>
+      <th>${station.name}</th>
+      <th>Weather</th>
+      <th>Temperature</th>
+      <th>Wind</th>
+      <th>Pressure</th>
+    </thead>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        Lat: ${station.latitude}<br>
+        Lon: ${station.longitude}
+      </td>
+      <td>${station.getLastReading().getWeather()}</td>
+      <td>
+        ${station.getLastReading().temperature} Celsius (C)<br>
+        ${station.getLastReading().getFahrenheit()} Fahrenheit (F)
+      </td>
+      <td>
+        ${station.getLastReading().getBeaufort()} bft<br>
+        ${station.getLastReading().getWindCompass()}<br>
+        Feels like: ${station.getLastReading().getRealFeel()} (C)
+      </td>
+      <td>${station.getLastReading().pressure} hPa</td>
+    </tr>
+    </tbody>
+  </table>
 
-  <h2 class="subtitle">
-    Add a new reading
-  </h2>
-  #{addreading station:station /}
+  <div>
+    <h2 class="subtitle is-6">Submitted Readings for ${station.name}:</h2>
+    #{listreadings station:station /}
+  </div>
 </div>
+<h3 class="subtitle is-5">
+  Add a new reading
+</h3>
+#{addreading station:station /}

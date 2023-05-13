@@ -24,15 +24,15 @@
       </td>
       <td>${station.getLastReading().getWeather()}</td>
       <td>
-        ${station.getLastReading().temperature} (C)
-        ${station.getLastReading().getFahrenheit()} (F)
+        ${station.getLastReading().temperature} Celsius (C)<br>
+        ${station.getLastReading().getFahrenheit()} Fahrenheit (F)
       </td>
       <td>
         ${station.getLastReading().getBeaufort()} bft<br>
-        ${station.getLastReading().windSpeed}<br>
-        ${station.getLastReading().windDirection}
+        ${station.getLastReading().getWindCompass()}<br>
+        Feels like: ${station.getLastReading().getRealFeel()} (C)
       </td>
-      <td>${station.getLastReading().pressure}</td>
+      <td>${station.getLastReading().pressure} hPa</td>
     </tr>
     </tbody>
   </table>
