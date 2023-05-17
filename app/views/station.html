@@ -7,12 +7,11 @@
   <table class="table">
     <thead class="title">
     <tr>
-      <th>${station.name}</th>
-      <th>Weather</th>
-      <th>Temperature</th>
-      <th>Wind</th>
-      <th>Pressure</th>
-    </thead>
+      <th>${station.name} <i class="fas fa-location-crosshairs"></i></th>
+      <th>Weather <i class="fa fa-cloud-sun"></i></th>
+      <th>Temperature <i class="fas fa-temperature-high"></i></th>
+      <th>Wind <i class="fa fa-wind"></i></th>
+      <th>Pressure <i class="fa fa-layer-group"></i></th></th>
     </tr>
     </thead>
     <tbody>
@@ -21,7 +20,10 @@
         Lat: ${station.latitude}<br>
         Lon: ${station.longitude}
       </td>
-      <td>${station.getLastReading().getWeather()}</td>
+      <td>
+        <i class="${station.getLastReading().getWeatherIcon()}"></i><br>
+        ${station.getLastReading().getWeather()}
+      </td>
       <td>
         ${station.getLastReading().temperature} Celsius (C)<br>
         ${station.getLastReading().getFahrenheit()} Fahrenheit (F)

@@ -3,47 +3,62 @@
 
 #{menu id:"dashboard"/}
 
-#{list items:stations, as:'station'}
+
 <div class="content box">
   <table class="table">
     <thead class="title">
     <tr>
-      <th>${station.name}</th>
-      <th>Weather</th>
-      <th>Temperature</th>
-      <th>Wind</th>
-      <th>Pressure</th>
-      </thead>
+      <th>Location <i class="fas fa-location-crosshairs"></i></th>
+      <th>Weather <i class="fa fa-cloud-sun"></i></th>
+      <th>Temperature <i class="fas fa-temperature-high"></i></th>
+      <th>Wind <i class="fa fa-wind"></i></th>
+      <th>Pressure <i class="fa fa-layer-group"></i></th></th>
     </tr>
     </thead>
     <tbody>
+#{list items:stations, as:'station'}
+
+
+
     <tr>
       <td>
-        Lat: ${station.latitude}<br>
-        Lon: ${station.longitude}
+        <div class="subtitle">${station.name}</div>
+          <p>
+            Lat: ${station.latitude}<br>
+            Lon: ${station.longitude}
+          </p>
+        <p>
+          <a href="/stations/${station.id}" class="icon has-text-primary">
+            <i class="fas fa-folder"></i>
+          </a> Open Station
+          <a href="/dashboard/deleteStation/${station.id}" class="icon has-text-danger">
+            <i class="fas fa-trash"></i>
+          </a> Delete Station
+        </p>
       </td>
-      <td>${station.getLastReading().getWeather()}</td>
+      <td>
+        <i class="${station.getLastReading().getWeatherIcon()}"></i><br>
+        ${station.getLastReading().getWeather()}
+
+      </td>
       <td>
         ${station.getLastReading().temperature} Celsius (C)<br>
         ${station.getLastReading().getFahrenheit()} Fahrenheit (F)
       </td>
       <td>
         ${station.getLastReading().getBeaufort()} bft<br>
-        ${station.getLastReading().getWindCompass()}<br>
+        <i class="fas fa-compass"></i> ${station.getLastReading().getWindCompass()}<br>
         Feels like: ${station.getLastReading().getRealFeel()} (C)
       </td>
       <td>${station.getLastReading().pressure} hPa</td>
     </tr>
+    #{/list}
+
     </tbody>
   </table>
-  <a href="/stations/${station.id}" class="icon has-text-primary">
-    <i class="fas fa-folder"></i>
-  </a>
-  <a href="/dashboard/deleteStation/${station.id}" class="icon has-text-danger">
-    <i class="fas fa-trash"></i>
-  </a>
+
 </div>
-#{/list}
+
 
 <h2 class="subtitle">
   Add a new Station

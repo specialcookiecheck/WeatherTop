@@ -7,6 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Entity
@@ -37,4 +38,6 @@ public class Member extends Model
     {
         return this.password.equals(password);
     }
+
+
 }

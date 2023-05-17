@@ -17,6 +17,8 @@ public class Reading extends Model
     public float windSpeed;
     public int windDirection;
     public int pressure;
+    public String weather;
+    public String weatherIcon;
 
     public Reading() {
         this.date = LocalDateTime.now().toString();
@@ -28,30 +30,38 @@ public class Reading extends Model
         this.windSpeed = windSpeed;
         this.windDirection = windDirection;
         this.pressure = pressure;
+        setWeather();
     }
 
-    public String getWeather() {
-        String weather;
+    public void setWeather() {
         if (code == 100) {
             weather = "Clear";
+            weatherIcon = "fa fa-sun";
         } else if (code == 200) {
             weather = "Partial Clouds";
+            weatherIcon = "fa fa-cloud-sun";
         } else if (code == 300) {
             weather = "Cloudy";
+            weatherIcon = "fa fa-cloud";
         } else if (code == 400) {
             weather = "Light Showers";
+            weatherIcon = "fa fa-cloud-sun-rain";
         } else if (code == 500) {
             weather = "Heavy Showers";
+            weatherIcon = "fa fa-cloud-showers-heavy";
         } else if (code == 600) {
             weather = "Rain";
+            weatherIcon = "fa fa-cloud-rain";
         } else if (code == 700) {
             weather = "Snow";
+            weatherIcon = "fa fa-snowflake";
         } else if (code == 800) {
             weather = "Thunder";
+            weatherIcon = "fa fa-bolt";
         } else {
-            return "No valid reading entered";
+            weather = "No valid reading entered";
+            weatherIcon = "";
         }
-        return weather;
     }
 
     public double getFahrenheit() {
@@ -71,6 +81,14 @@ public class Reading extends Model
             String newstring = datetime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             return newstring;
         }
+    }
+
+    public String getWeather() {
+        return weather;
+    }
+
+    public String getWeatherIcon() {
+        return weatherIcon;
     }
 
     public String getBeaufort() {
