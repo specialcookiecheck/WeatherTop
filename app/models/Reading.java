@@ -20,16 +20,20 @@ public class Reading extends Model
     public String weather;
     public String weatherIcon;
 
+    public Station station;
+
     public Reading() {
         this.date = LocalDateTime.now().toString();
     }
-    public Reading(String date, int code, float temperature, float windSpeed, int windDirection, int pressure) {
+    public Reading(String date, int code, float temperature, float windSpeed, int windDirection, int pressure, Station station) {
         this.date = date;
         this.code = code;
         this.temperature = temperature;
         this.windSpeed = windSpeed;
         this.windDirection = windDirection;
         this.pressure = pressure;
+        this.station = station;
+
         setWeather();
     }
 
@@ -171,5 +175,27 @@ public class Reading extends Model
     public String getRealFeel() {
         String formattedRealFeel = String.format("%.2f", getWindChillIndex());
         return formattedRealFeel;
+    }
+
+
+    public void updateStationMinMax() {
+        if (station.minWind > windSpeed || station.minWind == 0) {
+            station.minWind = windSpeed;
+        }
+        if (station.maxWind <  windSpeed) {
+            station.maxWind = windSpeed;
+        }
+        if (station.minTemp > temperature || station.minTemp == 0) {
+            station.minTemp = temperature;
+        }
+        if (station.maxTemp < temperature) {
+            station.maxTemp = temperature;
+        }
+        if (station.minPressure > pressure || station.minPressure == 0) {
+            station.minPressure = pressure;
+        }
+        if (station.maxPressure < pressure) {
+            station.maxPressure = pressure;
+        }
     }
 }

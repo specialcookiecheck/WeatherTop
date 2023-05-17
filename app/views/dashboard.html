@@ -39,18 +39,25 @@
       <td>
         <i class="${station.getLastReading().getWeatherIcon()}"></i><br>
         ${station.getLastReading().getWeather()}
-
       </td>
       <td>
         ${station.getLastReading().temperature} Celsius (C)<br>
-        ${station.getLastReading().getFahrenheit()} Fahrenheit (F)
+        ${station.getLastReading().getFahrenheit()} Fahrenheit (F) <br>
+        Minimum: ${station.minTemp} (C) <br>
+        Maximum: ${station.maxTemp} (C)
       </td>
       <td>
         ${station.getLastReading().getBeaufort()} bft<br>
         <i class="fas fa-compass"></i> ${station.getLastReading().getWindCompass()}<br>
-        Feels like: ${station.getLastReading().getRealFeel()} (C)
+        Feels like: ${station.getLastReading().getRealFeel()} (C) <br>
+        Minimum: ${station.minWind} (km/h) <br>
+        Maximum: ${station.maxWind} (km/h)
       </td>
-      <td>${station.getLastReading().pressure} hPa</td>
+      <td>
+        ${station.getLastReading().pressure} hPa <br>
+        Minimum: ${station.minPressure} (hPa) <br>
+        Maximum: ${station.maxPressure} (hPa)
+      </td>
     </tr>
     #{/list}
 

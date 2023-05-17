@@ -16,6 +16,15 @@ public class Station extends Model
     public double latitude;
     public double longitude;
 
+    public double minTemp;
+    public double maxTemp;
+    public double minWind;
+    public double maxWind;
+    public double minPressure;
+    public double maxPressure;
+
+
+
     @OneToMany(cascade = CascadeType.ALL)
     public List<Reading> readings = new ArrayList<Reading>();
 

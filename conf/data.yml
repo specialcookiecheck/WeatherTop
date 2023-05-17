@@ -11,7 +11,7 @@ Reading(r1):
 Reading(r2):
   date: 2021-01-20 09:34:00
   code: 600
-  weather: rain
+  weather: Rain
   weatherIcon: fa fa-cloud-rain
   temperature: 6.0
   windSpeed: 2
