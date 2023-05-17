@@ -20,19 +20,17 @@ public class Reading extends Model
     public String weather;
     public String weatherIcon;
 
-    public Station station;
-
     public Reading() {
         this.date = LocalDateTime.now().toString();
+        setWeather();
     }
-    public Reading(String date, int code, float temperature, float windSpeed, int windDirection, int pressure, Station station) {
+    public Reading(String date, int code, float temperature, float windSpeed, int windDirection, int pressure) {
         this.date = date;
         this.code = code;
         this.temperature = temperature;
         this.windSpeed = windSpeed;
         this.windDirection = windDirection;
         this.pressure = pressure;
-        this.station = station;
 
         setWeather();
     }
@@ -129,7 +127,7 @@ public class Reading extends Model
         if (windDirection < 0) {
             return "Invalid direction";
         } else if (windDirection < 11.25) {
-            return "North North East";
+            return "North";
         } else if (windDirection < 33.75) {
             return "North North East";
         } else if (windDirection < 56.25) {
@@ -178,7 +176,7 @@ public class Reading extends Model
     }
 
 
-    public void updateStationMinMax() {
+    public void updateStationMinMax(Station station) {
         if (station.minWind > windSpeed || station.minWind == 0) {
             station.minWind = windSpeed;
         }

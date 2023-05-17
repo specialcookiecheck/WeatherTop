@@ -28,19 +28,22 @@
         ${station.getLastReading().temperature} Celsius (C)<br>
         ${station.getLastReading().getFahrenheit()} Fahrenheit (F) <br>
         Minimum: ${station.minTemp} (C) <br>
-        Maximum: ${station.maxTemp} (C)
+        Maximum: ${station.maxTemp} (C) <br>
+        Trending <i class="${station.outputTempTrend()}"></i>
       </td>
       <td>
         ${station.getLastReading().getBeaufort()} bft<br>
-        ${station.getLastReading().getWindCompass()}<br>
+        <i class="fas fa-compass"></i> ${station.getLastReading().getWindCompass()}<br>
         Feels like: ${station.getLastReading().getRealFeel()} (C) <br>
         Minimum: ${station.minWind} (km/h) <br>
-        Maximum: ${station.maxWind} (km/h)
+        Maximum: ${station.maxWind} (km/h) <br>
+        Trending <i class="${station.outputWindTrend()}"></i>
       </td>
       <td>
         ${station.getLastReading().pressure} hPa <br>
         Minimum: ${station.minPressure} (hPa) <br>
-        Maximum: ${station.maxPressure} (hPa)
+        Maximum: ${station.maxPressure} (hPa) <br>
+        Trending <i class="${station.outputPressureTrend()}"></i>
       </td>
     </tr>
     </tbody>

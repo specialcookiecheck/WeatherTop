@@ -32,9 +32,10 @@ public class StationCtrl extends Controller
     {
         String date = LocalDateTime.now().toString();
         Station station = Station.findById(id);
-        Reading reading = new Reading(date, code, temperature, windSpeed, windDirection, pressure, station);
+        Reading reading = new Reading(date, code, temperature, windSpeed, windDirection, pressure);
+        reading.updateStationMinMax(station);
         station.readings.add(reading);
-        reading.updateStationMinMax();
+        station.setTrends();
         station.save();
         redirect ("/stations/" + id);
     }
