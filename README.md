@@ -13,6 +13,7 @@ References:
 - https://www.javatpoint.com/power-function-in-java
 - https://www.w3schools.com/icons/fontawesome_icons_intro.asp
 - https://www.angularjswiki.com/fontawesome/#search-font-awesome-icons
+- https://stackoverflow.com/questions/2506342/is-it-good-to-put-a-nbsp-inside-an-empty-td
 
 Image sources:
 - https://upload.wikimedia.org/wikipedia/commons/b/ba/Beaufort_wind_scale.png

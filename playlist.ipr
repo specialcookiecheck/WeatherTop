@@ -129,7 +129,7 @@
   </component>
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/playlist.iml" filepath="$PROJECT_DIR$/playlist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WeatherStation.iml" filepath="$PROJECT_DIR$/WeatherStation.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.6" project-jdk-type="JavaSDK">

@@ -7,6 +7,7 @@ GET     /                                           Start.index
 GET     /dashboard                                  Dashboard.index
 GET     /about                                      About.index
 GET     /admin                                      Admin.index
+GET     /account                                    Accounts.index
 
 
 GET     /stations/{id}                              StationCtrl.index
@@ -18,6 +19,7 @@ GET     /dashboard/deleteStation/{id}               Dashboard.deleteStation
 
 POST    /stations/{id}/addreading                   StationCtrl.addReading
 POST    /dashboard/addstation                       Dashboard.addStation
+POST    /account/editmember                         Accounts.editMember
 
 
 GET    /signup                                      Accounts.signup

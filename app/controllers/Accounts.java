@@ -1,14 +1,24 @@
 package controllers;
 
 import models.Member;
+import models.Station;
 import play.Logger;
 import play.mvc.Controller;
+
+import java.util.List;
 
 public class Accounts extends Controller
 {
     public static void signup()
     {
         render("signup.html");
+    }
+
+    public static void index()
+    {
+        Member member = Accounts.getLoggedInMember();
+        Logger.info("Rendering Account " + member.email);
+        render ("account.html", member);
     }
 
     public static void login()
@@ -22,6 +32,18 @@ public class Accounts extends Controller
         Member member = new Member(firstname, lastname, email, password);
         member.save();
         redirect("/");
+    }
+
+    public static void editMember(String firstname, String lastname, String email, String password)
+    {
+        Member member = getLoggedInMember();
+        Logger.info("Registering edited user details " + email);
+        member.firstname = firstname;
+        member.lastname = lastname;
+        member.email = email;
+        member.password = password;
+        member.save();
+        redirect("/account");
     }
 
     public static void authenticate(String email, String password)

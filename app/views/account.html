@@ -1,0 +1,36 @@
+#{extends 'main.html' /}
+#{set title:'Account' /}
+
+#{menu id:"account"/}
+
+<div class="content box">
+    <h1 class="title">Your details</h1>
+    <div>
+        <table class="table">
+            <tbody>
+            <tr>
+                <td>First name:</td>
+                <td></td>
+                <td>${member.firstname}</td>
+            </tr>
+            <tr>
+                <td>Last name:</td>
+                <td></td>
+                <td>${member.lastname}</td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td></td>
+                <td>${member.email}</td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td></td>
+                <td>*****</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+#{editmember member:member /}
