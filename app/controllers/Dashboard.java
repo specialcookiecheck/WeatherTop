@@ -15,6 +15,14 @@ public class Dashboard extends Controller
     Logger.info("Rendering Dashboard");
     Member member = Accounts.getLoggedInMember();
     List<Station> stations = member.stations;
+    for (Station station : stations) {
+      if (station.maxPressure == 0) {
+        station.setStationMinMax();
+        station.setTrends();
+        station.getLastReading().setWeather();
+        station.save();
+      }
+    }
     render ("dashboard.html", stations);
   }
 

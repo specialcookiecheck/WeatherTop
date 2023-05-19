@@ -14,6 +14,9 @@ References:
 - https://www.w3schools.com/icons/fontawesome_icons_intro.asp
 - https://www.angularjswiki.com/fontawesome/#search-font-awesome-icons
 - https://stackoverflow.com/questions/2506342/is-it-good-to-put-a-nbsp-inside-an-empty-td
+- https://www.playframework.com/documentation/1.2.x/templates
+- https://bulma.io/documentation/form/general/
+- https://www.w3docs.com/snippets/css/how-to-create-a-placeholder-for-an-html5-select-box-by-using-only-html-and-css.html
 
 Image sources:
 - https://upload.wikimedia.org/wikipedia/commons/b/ba/Beaufort_wind_scale.png

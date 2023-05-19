@@ -1,8 +1,6 @@
 Reading(r1):
   date: 2021-01-19 08:31:00
   code: 800
-  weather: Thunder
-  weatherIcon: fa fa-bolt
   temperature: 0.5
   windSpeed: 3.5
   windDirection: 220
@@ -11,8 +9,6 @@ Reading(r1):
 Reading(r2):
   date: 2021-01-20 09:34:00
   code: 600
-  weather: Rain
-  weatherIcon: fa fa-cloud-rain
   temperature: 6.0
   windSpeed: 2
   windDirection: 200
@@ -21,8 +17,6 @@ Reading(r2):
 Reading(r3):
   date: 2021-01-20 10:31:00
   code: 700
-  weather: Snow
-  weatherIcon: fa fa-snowflake
   temperature: 8.0
   windSpeed: 1
   windDirection: 90
@@ -31,12 +25,18 @@ Reading(r3):
 Reading(r4):
   date: 2021-01-19 09:31:00
   code: 200
-  weather: Partial Clouds
-  weatherIcon: fa fa-cloud-sun
   temperature: 0.5
   windSpeed: 3.5
   windDirection: 120
   pressure: 999
+
+Reading(r5):
+  date: 2021-01-19 09:32:00
+  code: 100
+  temperature: 7.5
+  windSpeed: 0.5
+  windDirection: 120
+  pressure: 1006
 
 
 Station(s1):
@@ -46,6 +46,7 @@ Station(s1):
   readings:
     - r1
     - r2
+    - r5
 
 Station(s2):
   name: Dunmore

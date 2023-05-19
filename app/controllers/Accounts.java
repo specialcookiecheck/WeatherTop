@@ -17,6 +17,7 @@ public class Accounts extends Controller
     public static void index()
     {
         Member member = Accounts.getLoggedInMember();
+
         Logger.info("Rendering Account " + member.email);
         render ("account.html", member);
     }
@@ -44,6 +45,15 @@ public class Accounts extends Controller
         member.password = password;
         member.save();
         redirect("/account");
+    }
+
+    public void deleteMember() {
+        Member member = getLoggedInMember();
+
+        Logger.info("Deleting account " + member.email);
+        member.delete();
+        Logger.info("Account " + member.email + " deleted");
+        redirect("/");
     }
 
     public static void authenticate(String email, String password)

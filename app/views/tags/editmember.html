@@ -1,28 +1,48 @@
-<h2 class="subtitle">Update your details</h2>
+<div class="columns">
+  <div class="column">
+    <h2 class="subtitle">Update your details</h2>
+  </div>
+  <div class="column">
+    <a href="/accounts/deleteMember" class="button is-danger is-pulled-right">Delete Account</a>
+  </div>
+</div>
+
 <form action="/account/editmember" method="POST">
   <div class="columns">
     <div class="field column">
-      <div class="control">
         <label>First Name</label>
-        <input class="input" placeholder="${_member.firstname}" type="text" name="firstname" required>
+        <div class="control has-icons-left">
+          <input class="input is-rounded" placeholder="${_member.firstname}" type="text" name="firstname" required>
+          <span class="icon is-small is-left">
+          <i class="fas fa-circle-user"></i>
+        </span>
       </div>
     </div>
     <div class="field column">
-      <div class="control">
-        <label>Last Name</label>
-        <input class="input" placeholder="${_member.lastname}" type="text" name="lastname" required>
+      <label>Last Name</label>
+      <div class="control has-icons-left">
+        <input class="input is-rounded" placeholder="${_member.lastname}" type="text" name="lastname" required>
+        <span class="icon is-small is-left">
+          <i class="fas fa-user"></i>
+        </span>
       </div>
     </div>
     <div class="field column">
-      <div class="control">
-        <label>Email</label>
-        <input class="input" placeholder="${_member.email}" type="email" name="email" required>
+      <label>Email</label>
+      <div class="control has-icons-left">
+        <input class="input is-rounded" placeholder="${_member.email}" type="email" name="email" required>
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
       </div>
     </div>
     <div class="field column">
-      <div class="control">
-        <label>Password</label>
-        <input class="input" placeholder="${_member.password}" type="password" name="password" required>
+      <label>Password</label>
+      <div class="control has-icons-left">
+        <input class="input is-rounded" placeholder="*****" type="password" name="password" required>
+        <span class="icon is-small is-left">
+          <i class="fas fa-user-secret"></i>
+        </span>
       </div>
     </div>
   </div>
@@ -32,3 +52,5 @@
     </div>
   </div>
 </form>
+
+
