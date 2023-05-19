@@ -5,69 +5,108 @@
 
 
 <div class="content box">
-  <table class="table">
-    <thead class="title">
-    <tr>
-      <th>Location <i class="fas fa-location-crosshairs"></i></th>
-      <th>Weather <i class="fa fa-cloud-sun"></i></th>
-      <th>Temperature <i class="fas fa-temperature-high"></i></th>
-      <th>Wind <i class="fa fa-wind"></i></th>
-      <th>Pressure <i class="fa fa-layer-group"></i></th></th>
-    </tr>
-    </thead>
-    <tbody>
-#{list items:stations, as:'station'}
-    <tr>
-      <td>
-        <div class="subtitle">${station.name}</div>
-          <p>
-            Lat: ${station.latitude}<br>
-            Lon: ${station.longitude}
-          </p>
-        <p>
-          <a href="/stations/${station.id}" class="icon has-text-primary">
-            <i class="fas fa-door-open"></i>
-          </a> Open Station
-          <a href="/dashboard/deleteStation/${station.id}" class="icon has-text-danger">
-            <i class="fas fa-explosion"></i>
-          </a> Destroy Station
-        </p>
-      </td>
-      <td>
-        <i class="${station.getLastReading().getWeatherIcon()}"></i><br>
-        ${station.getLastReading().getWeather()}
-      </td>
-      <td>
-        ${station.getLastReading().temperature} Celsius (C)<br>
-        ${station.getLastReading().getFahrenheit()} Fahrenheit (F) <br>
-        Minimum: ${station.minTemp} (C) <br>
-        Maximum: ${station.maxTemp} (C) <br>
-        Trending <i class="${station.outputTempTrend()}"></i>
-      </td>
-      <td>
-        ${station.getLastReading().getBeaufort()} bft<br>
-        <i class="fas fa-compass"></i> ${station.getLastReading().getWindCompass()}<br>
-        Feels like: ${station.getLastReading().getRealFeel()} (C) <br>
-        Minimum: ${station.minWind} (km/h) <br>
-        Maximum: ${station.maxWind} (km/h) <br>
-        Trending <i class="${station.outputWindTrend()}"></i>
-      </td>
-      <td>
-        ${station.getLastReading().pressure} hPa <br>
-        Minimum: ${station.minPressure} (hPa) <br>
-        Maximum: ${station.maxPressure} (hPa) <br>
-        Trending <i class="${station.outputPressureTrend()}"></i>
-      </td>
-    </tr>
-    #{/list}
+    <table class="table">
+        <thead class="title">
+        <tr class="sunny">
+            <th class="has-text-link">Location <i class="fas fa-location-crosshairs main-icon"></i></th>
+            <th class="has-text-link">Weather <i class="fa fa-cloud-sun main-icon"></i></th>
+            <th class="has-text-link">Temperature <i class="fas fa-temperature-high main-icon"></i></th>
+            <th class="has-text-link">Wind <i class="fa fa-wind main-icon"></i></th>
+            <th class="has-text-link">Pressure <i class="fa fa-layer-group main-icon"></i></th>
+            </th>
+        </tr>
+        </thead>
+        <tbody class="has-text-white has-background-link">
 
-    </tbody>
-  </table>
+        #{list items:stations, as:'station'}
+
+        <tr>
+            <td>
+                <div class="box title sunny column">
+                    <h1 class="title is-4 has-text-link-dark">${station.name}</h1>
+                    <p class="box subtitle is-6">
+                        Lat: ${station.latitude}<br>
+                        Lon: ${station.longitude}
+                    </p>
+                </div>
+                <div class="subtitle is-6">
+                    <span>
+                        <a href="/stations/${station.id}" class="button is-small is-primary is-light has-text-primary">
+                            <i class="fas fa-door-open"></i> Open Station
+                        </a>
+                    </span>
+                    <span>
+                        <a href="/dashboard/deleteStation/${station.id}"
+                           class="button is-small is-danger is-light has-text-danger">
+                            <i class="fas fa-explosion"></i> Destroy Station
+                        </a>
+                    </span>
+                </div>
+            </td>
+            <td>
+                <div class="box subtitle is-6">
+                    <i class="${station.getLastReading().getWeatherIcon()}"></i><br>
+                    ${station.getLastReading().getWeather()}
+                </div>
+            </td>
+            <td>
+                <div class="box subtitle is-6">
+                    <p>
+                        ${station.getLastReading().temperature} Celsius (C) <br>
+                        ${station.getLastReading().getFahrenheit()} Fahrenheit
+                    </p>
+                    <p>
+                        Minimum: ${station.minTemp} (C) <br>
+                        Maximum: ${station.maxTemp} (C)
+                    </p>
+                    <p>
+                        Trending <i class="${station.outputTempTrend()}"></i>
+                    </p>
+                </div>
+            </td>
+            <td>
+                <div class="box subtitle is-6">
+                    <p>
+                        ${station.getLastReading().getBeaufort()} bft<br>
+                        <i class="fas fa-compass"></i> ${station.getLastReading().getWindCompass()}
+                    </p>
+                    <p>
+                        Feels like: ${station.getLastReading().getRealFeel()} (C)
+                    </p>
+                    <p>
+                        Minimum: ${station.minWind} (km/h) <br>
+                        Maximum: ${station.maxWind} (km/h)
+                    </p>
+                    <p>
+                        Trending <i class="${station.outputWindTrend()}"></i>
+                    </p>
+                </div>
+            </td>
+            <td>
+                <div class="box subtitle is-6">
+                    <p>
+                        ${station.getLastReading().pressure} hPa
+                    </p>
+                    <p>
+                        Minimum: ${station.minPressure} (hPa) <br>
+                        Maximum: ${station.maxPressure} (hPa)
+                    </p>
+                    <p>
+                        Trending <i class="${station.outputPressureTrend()}"></i>
+                    </p>
+                </div>
+            </td>
+        </tr>
+
+        #{/list}
+
+        </tbody>
+    </table>
 
 </div>
 
 
 <h2 class="subtitle">
-  Add a new Station
+    Add a new Station
 </h2>
 #{addstation /}

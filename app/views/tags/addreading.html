@@ -16,28 +16,16 @@
             <option value="800">800 - Thunder</option>
           </select>
           <span class="icon is-small is-left">
-          <i class="fas fa-barcode"></i>
+          <i class="fas fa-barcode addcode"></i>
           </span>
         </div>
       </div>
     </div>
-
-    <!--
-    <div class="field column">
-      <div class="control has-icons-left">
-        <input class="input is-rounded" placeholder="Weather (code 100-800)" type="number" name="code" min="100" max="800" step="100" required>
-        <span class="icon is-small is-left">
-          <i class="fas fa-barcode"></i>
-        </span>
-      </div>
-    </div>
-    -->
-
     <div class="field column">
       <div class="control has-icons-left">
         <input class="input is-rounded" placeholder="Temperature (C)" type="number" name="temperature" min="-75" max="75" step="0.5" required>
         <span class="icon is-small is-left">
-          <i class="fas fa-temperature-half"></i>
+          <i class="fas fa-temperature-half addtemp"></i>
         </span>
       </div>
     </div>
@@ -45,7 +33,7 @@
       <div class="control has-icons-left">
         <input class="input is-rounded" placeholder="Wind speed (km/h)" type="number" name="windSpeed" min="0" max="600" step="0.5" required>
         <span class="icon is-small is-left">
-          <i class="fas fa-wind"></i>
+          <i class="fas fa-wind addwind"></i>
         </span>
       </div>
     </div>
@@ -53,7 +41,7 @@
       <div class="control has-icons-left">
         <input class="input is-rounded" placeholder="Wind direction (0-360)" type="number" name="windDirection" min="0" max="360" step="0.25" required>
         <span class="icon is-small is-left">
-          <i class="fas fa-location-arrow"></i>
+          <i class="fas fa-location-arrow adddirection"></i>
         </span>
       </div>
     </div>
@@ -61,14 +49,14 @@
       <div class="control has-icons-left">
         <input class="input is-rounded" placeholder="Pressure (hPa)" type="number" name="pressure" min="800" max="1200" step="1" required>
         <span class="icon is-small is-left">
-          <i class="fas fa-layer-group"></i>
+          <i class="fas fa-layer-group addpressure"></i>
         </span>
       </div>
     </div>
   </div>
   <div class="field mt-4">
     <div class="control">
-      <button class="button is-info">Add Reading</button>
+      <button class="button is-link">Add Reading</button>
     </div>
   </div>
 </form>

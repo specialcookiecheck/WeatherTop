@@ -32,7 +32,7 @@ public class Accounts extends Controller
         Logger.info("Registering new user " + email);
         Member member = new Member(firstname, lastname, email, password);
         member.save();
-        redirect("/");
+        redirect("/login");
     }
 
     public static void editMember(String firstname, String lastname, String email, String password)

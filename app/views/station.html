@@ -4,57 +4,89 @@
 #{menu id:"dashboard"/}
 
 <div class="content box">
-  <table class="table">
-    <thead class="title">
-    <tr>
-      <th>${station.name} <i class="fas fa-location-crosshairs"></i></th>
-      <th>Weather <i class="fa fa-cloud-sun"></i></th>
-      <th>Temperature <i class="fas fa-temperature-half"></i></th>
-      <th>Wind <i class="fa fa-wind"></i></th>
-      <th>Pressure <i class="fa fa-layer-group"></i></th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td>
-        Lat: ${station.latitude}<br>
-        Lon: ${station.longitude}
-      </td>
-      <td>
-        <i class="${station.getLastReading().getWeatherIcon()}"></i><br>
-        ${station.getLastReading().getWeather()}
-      </td>
-      <td>
-        ${station.getLastReading().temperature} Celsius (C)<br>
-        ${station.getLastReading().getFahrenheit()} Fahrenheit (F) <br>
-        Minimum: ${station.minTemp} (C) <br>
-        Maximum: ${station.maxTemp} (C) <br>
-        Trending <i class="${station.outputTempTrend()}"></i>
-      </td>
-      <td>
-        ${station.getLastReading().getBeaufort()} bft<br>
-        <i class="fas fa-compass"></i> ${station.getLastReading().getWindCompass()}<br>
-        Feels like: ${station.getLastReading().getRealFeel()} (C) <br>
-        Minimum: ${station.minWind} (km/h) <br>
-        Maximum: ${station.maxWind} (km/h) <br>
-        Trending <i class="${station.outputWindTrend()}"></i>
-      </td>
-      <td>
-        ${station.getLastReading().pressure} hPa <br>
-        Minimum: ${station.minPressure} (hPa) <br>
-        Maximum: ${station.maxPressure} (hPa) <br>
-        Trending <i class="${station.outputPressureTrend()}"></i>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+    <table class="table">
+        <thead class="title">
+        <tr class="sunny">
+            <th class="has-text-link">${station.name} <i class="fas fa-location-crosshairs main-icon"></i></th>
+            <th class="has-text-link">Weather <i class="fa fa-cloud-sun main-icon"></i></th>
+            <th class="has-text-link">Temperature <i class="fas fa-temperature-half main-icon"></i></th>
+            <th class="has-text-link">Wind <i class="fa fa-wind main-icon"></i></th>
+            <th class="has-text-link">Pressure <i class="fa fa-layer-group main-icon"></i></th>
+            </th>
+        </tr>
+        </thead>
+        <tbody class="has-background-link-dark">
+        <tr>
+            <td>
+                <p class="box subtitle is-6">
+                    Lat: ${station.latitude}<br>
+                    Lon: ${station.longitude}
+                </p>
 
-  <div>
-    <h2 class="subtitle is-6">Submitted Readings for ${station.name}:</h2>
-    #{listreadings station:station /}
-  </div>
+            </td>
+            <td>
+                <div class="box subtitle is-6">
+                    <i class="${station.getLastReading().getWeatherIcon()}"></i><br>
+                    ${station.getLastReading().getWeather()}
+                </div>
+            </td>
+            <td>
+                <div class="box subtitle is-6">
+                    <p>
+                        ${station.getLastReading().temperature} Celsius (C) <br>
+                        ${station.getLastReading().getFahrenheit()} Fahrenheit
+                    </p>
+                    <p>
+                        Minimum: ${station.minTemp} (C) <br>
+                        Maximum: ${station.maxTemp} (C)
+                    </p>
+                    <p>
+                        Trending <i class="${station.outputTempTrend()}"></i>
+                    </p>
+                </div>
+            </td>
+            <td>
+                <div class="box subtitle is-6">
+                    <p>
+                        ${station.getLastReading().getBeaufort()} bft<br>
+                        <i class="fas fa-compass"></i> ${station.getLastReading().getWindCompass()}
+                    </p>
+                    <p>
+                        Feels like: ${station.getLastReading().getRealFeel()} (C)
+                    </p>
+                    <p>
+                        Minimum: ${station.minWind} (km/h) <br>
+                        Maximum: ${station.maxWind} (km/h)
+                    </p>
+                    <p>
+                        Trending <i class="${station.outputWindTrend()}"></i>
+                    </p>
+                </div>
+            </td>
+            <td>
+                <div class="box subtitle is-6">
+                    <p>
+                        ${station.getLastReading().pressure} hPa
+                    </p>
+                    <p>
+                        Minimum: ${station.minPressure} (hPa) <br>
+                        Maximum: ${station.maxPressure} (hPa)
+                    </p>
+                    <p>
+                        Trending <i class="${station.outputPressureTrend()}"></i>
+                    </p>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <h2 class="subtitle is-6">Submitted Readings for ${station.name}:</h2>
+        #{listreadings station:station /}
+    </div>
 </div>
 <h3 class="subtitle is-5">
-  Add a new reading
+    Add a new reading
 </h3>
 #{addreading station:station /}

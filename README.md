@@ -17,6 +17,7 @@ References:
 - https://www.playframework.com/documentation/1.2.x/templates
 - https://bulma.io/documentation/form/general/
 - https://www.w3docs.com/snippets/css/how-to-create-a-placeholder-for-an-html5-select-box-by-using-only-html-and-css.html
+- https://www.playframework.com/documentation/1.5.x/guide3
 
 Image sources:
 - https://upload.wikimedia.org/wikipedia/commons/b/ba/Beaufort_wind_scale.png
