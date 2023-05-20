@@ -23,6 +23,7 @@ public class StationCtrl extends Controller
         Reading reading = Reading.findById(readingid);
         Logger.info ("Removing reading" + reading.id);
         station.readings.remove(reading);
+        station.setStationMinMax();
         station.save();
         reading.delete();
         render("station.html", station);

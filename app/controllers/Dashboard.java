@@ -1,6 +1,8 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import models.Member;
@@ -10,11 +12,20 @@ import play.mvc.Controller;
 
 public class Dashboard extends Controller
 {
+
   public static void index()
   {
     Logger.info("Rendering Dashboard");
     Member member = Accounts.getLoggedInMember();
     List<Station> stations = member.stations;
+
+    Collections.sort(stations, new Comparator<Station>() {
+      @Override
+      public int compare(Station s1, Station s2) {
+        return s1.name.toUpperCase().compareTo(s2.name.toUpperCase());
+      }
+    });
+
     for (Station station : stations) {
       if (station.maxPressure == 0) {
         station.setStationMinMax();
@@ -46,5 +57,15 @@ public class Dashboard extends Controller
     member.save();
 
     redirect ("/dashboard");
+  }
+
+  public static void sortStations(List<Station> stations) {
+    Collections.sort(stations, new Comparator<Station>() {
+      @Override
+      public int compare(Station s1, Station s2) {
+        return s1.name.compareTo(s2.name);
+      }
+    });
+    Logger.info(stations.toString());
   }
 }

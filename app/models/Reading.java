@@ -177,19 +177,19 @@ public class Reading extends Model
 
 
     public void updateStationMinMax(Station station) {
-        if (station.minWind > windSpeed || station.minWind == 0) {
+        if (station.minWind > windSpeed) {
             station.minWind = windSpeed;
         }
         if (station.maxWind <  windSpeed) {
             station.maxWind = windSpeed;
         }
-        if (station.minTemp > temperature || station.minTemp == 0) {
+        if (station.minTemp > temperature) {
             station.minTemp = temperature;
         }
         if (station.maxTemp < temperature) {
             station.maxTemp = temperature;
         }
-        if (station.minPressure > pressure || station.minPressure == 0) {
+        if (station.minPressure > pressure) {
             station.minPressure = pressure;
         }
         if (station.maxPressure < pressure) {

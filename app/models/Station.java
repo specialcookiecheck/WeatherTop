@@ -54,32 +54,56 @@ public class Station extends Model
     }
 
     public void setStationMinMax() {
-        Logger.info("Starting StationMinMax");
-        for (int i = 0; i < readings.size()-1; i++) {
-            Logger.info("Reading" + i + readings.get(i));
-            if (minWind > readings.get(i).windSpeed || minWind == 0) {
-                minWind = readings.get(i).windSpeed;
+        Logger.info("Setting StationMinMax");
+
+        if (readings.size() > 0) {
+            for (int i = 0; i < readings.size()-1; i++) {
+                Logger.info("Reading" + i + readings.get(i));
+
+                Logger.info("Reading Temp: " + readings.get(i).temperature);
+                Logger.info("Current minTemp: " + minTemp);
+                if (minTemp > readings.get(i).temperature) {
+                    minTemp = readings.get(i).temperature;
+                }
+                Logger.info("Current maxTemp: " + maxTemp);
+                if (maxTemp < readings.get(i).temperature) {
+                    maxTemp = readings.get(i).temperature;
+                }
+
+                Logger.info("Reading WindSpeed: " + readings.get(i).windSpeed);
+                Logger.info("Current minWind: " + minWind);
+                if (minWind > readings.get(i).windSpeed) {
+                    minWind = readings.get(i).windSpeed;
+                }
+                Logger.info("Current maxWind: " + maxWind);
+                if (maxWind <  readings.get(i).windSpeed) {
+                    maxWind = readings.get(i).windSpeed;
+                }
+
+                Logger.info("Reading Pressure: " + readings.get(i).pressure);
+                Logger.info("Current minPressure: " + minPressure);
+                if (minPressure > readings.get(i).pressure) {
+                    minPressure = readings.get(i).pressure;
+                }
+                Logger.info("Current maxPressure: " + maxPressure);
+                if (maxPressure < readings.get(i).pressure) {
+                    maxPressure = readings.get(i).pressure;
+                }
             }
-            if (maxWind <  readings.get(i).windSpeed) {
-                maxWind = readings.get(i).windSpeed;
-            }
-            if (minTemp > readings.get(i).temperature || minTemp == 0) {
-                minTemp = readings.get(i).temperature;
-            }
-            if (maxTemp < readings.get(i).temperature) {
-                maxTemp = readings.get(i).temperature;
-            }
-            if (minPressure > readings.get(i).pressure || minPressure == 0) {
-                minPressure = readings.get(i).pressure;
-            }
-            if (maxPressure < readings.get(i).pressure) {
-                maxPressure = readings.get(i).pressure;
-            }
+        } else {
+            minTemp = 0;
+            maxTemp = 0;
+            minWind = 0;
+            maxWind = 0;
+            minPressure = 0;
+            maxPressure = 0;
         }
+
     }
 
     public void setTrends() {
         if (readings.size() > 2) {
+            Logger.info("Setting trends");
             setTempTrend();
             setWindTrend();
             setPressureTrend();
@@ -87,6 +111,8 @@ public class Station extends Model
     }
 
     private void setTempTrend() {
+        Logger.info("Setting temp trend");
+
         Reading currentReading = readings.get(readings.size()-1);
         Reading previousReading = readings.get(readings.size()-2);
         Reading twoToLastReading = readings.get(readings.size()-3);
@@ -105,6 +131,8 @@ public class Station extends Model
     }
 
     private void setWindTrend() {
+        Logger.info("Setting wind trend");
+
         Reading currentReading = readings.get(readings.size()-1);
         Reading previousReading = readings.get(readings.size()-2);
         Reading twoToLastReading = readings.get(readings.size()-3);
@@ -112,6 +140,10 @@ public class Station extends Model
         float currentWind = currentReading.windSpeed;
         float previousWind = previousReading.windSpeed;
         float twoToLastWind = twoToLastReading.windSpeed;
+
+        Logger.info(String.valueOf(currentWind));
+        Logger.info(String.valueOf(previousWind));
+        Logger.info(String.valueOf(twoToLastWind));
 
         if (currentWind > previousWind && previousWind > twoToLastWind) {
             windTrend = "Up";
@@ -123,6 +155,8 @@ public class Station extends Model
     }
 
     private void setPressureTrend() {
+        Logger.info("Setting pressure trend");
+
         Reading currentReading = readings.get(readings.size()-1);
         Reading previousReading = readings.get(readings.size()-2);
         Reading twoToLastReading = readings.get(readings.size()-3);
@@ -143,9 +177,9 @@ public class Station extends Model
     public String outputTempTrend() {
         if (readings.size() > 2) {
             if (tempTrend.equals("Up")) {
-                return "fas fa-arrow-trend-up";
+                return "fas fa-arrow-trend-up has-text-danger";
             } else if (tempTrend.equals("Down")) {
-                return "fas fa-arrow-trend-down";
+                return "fas fa-arrow-trend-down has-text-info";
             } else {
                 return "fas fa-grip-lines";
             }
@@ -157,9 +191,9 @@ public class Station extends Model
     public String outputWindTrend() {
         if (readings.size() > 2) {
             if (windTrend.equals("Up")) {
-                return "fas fa-arrow-trend-up";
-            } else if (tempTrend.equals("Down")) {
-                return "fas fa-arrow-trend-down";
+                return "fas fa-arrow-trend-up has-text-black-bis";
+            } else if (windTrend.equals("Down")) {
+                return "fas fa-arrow-trend-down has-text-grey-light";
             } else {
                 return "fas fa-grip-lines";
             }
@@ -171,9 +205,9 @@ public class Station extends Model
     public String outputPressureTrend () {
         if (readings.size() > 2) {
             if (pressureTrend.equals("Up")) {
-                return "fas fa-arrow-trend-up";
+                return "fas fa-arrow-trend-up has-text-danger";
             } else if (pressureTrend.equals("Down")) {
-                return "fas fa-arrow-trend-down";
+                return "fas fa-arrow-trend-down has-text-info";
             } else {
                 return "fas fa-grip-lines";
             }

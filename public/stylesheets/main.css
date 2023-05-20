@@ -1,12 +1,27 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
+
 .fa-sun, .fa-bolt {
     color: #f2d072;
 }
 
-.fa-cloud-sun-rain {
-    color: lightgrey;
+.fa-cloud-sun {
+    color:lightgrey;
 }
 
-.fa-snowflake, .fa-cloud-sun, .main-icon {
+.fa-cloud-sun-rain {
+    color: lightskyblue;
+}
+
+.fa-snowflake {
+    background-color: lightblue;
+    border-radius: 25%;
+    color: white;
+    padding: 1px;
+}
+
+.main-icon {
     color: white;
 }
 
@@ -14,8 +29,12 @@
     color: grey;
 }
 
-.fa-cloud-rain, .fa-cloud-showers-heavy {
-    color: lightskyblue;
+.fa-cloud-rain {
+    color: blue;
+}
+
+.fa-cloud-showers-heavy {
+    color: darkblue;
 }
 
 .sunny {

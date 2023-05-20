@@ -6,7 +6,7 @@
 <div class="content box">
     <table class="table">
         <thead class="title">
-        <tr class="sunny">
+        <tr class="sunny has-text-centered">
             <th class="has-text-link">${station.name} <i class="fas fa-location-crosshairs main-icon"></i></th>
             <th class="has-text-link">Weather <i class="fa fa-cloud-sun main-icon"></i></th>
             <th class="has-text-link">Temperature <i class="fas fa-temperature-half main-icon"></i></th>
@@ -19,64 +19,13 @@
         <tr>
             <td>
                 <p class="box subtitle is-6">
-                    Lat: ${station.latitude}<br>
-                    Lon: ${station.longitude}
+                    Latitude: ${station.latitude}<br>
+                    Longitude: ${station.longitude}
                 </p>
+            </td>
 
-            </td>
-            <td>
-                <div class="box subtitle is-6">
-                    <i class="${station.getLastReading().getWeatherIcon()}"></i><br>
-                    ${station.getLastReading().getWeather()}
-                </div>
-            </td>
-            <td>
-                <div class="box subtitle is-6">
-                    <p>
-                        ${station.getLastReading().temperature} Celsius (C) <br>
-                        ${station.getLastReading().getFahrenheit()} Fahrenheit
-                    </p>
-                    <p>
-                        Minimum: ${station.minTemp} (C) <br>
-                        Maximum: ${station.maxTemp} (C)
-                    </p>
-                    <p>
-                        Trending <i class="${station.outputTempTrend()}"></i>
-                    </p>
-                </div>
-            </td>
-            <td>
-                <div class="box subtitle is-6">
-                    <p>
-                        ${station.getLastReading().getBeaufort()} bft<br>
-                        <i class="fas fa-compass"></i> ${station.getLastReading().getWindCompass()}
-                    </p>
-                    <p>
-                        Feels like: ${station.getLastReading().getRealFeel()} (C)
-                    </p>
-                    <p>
-                        Minimum: ${station.minWind} (km/h) <br>
-                        Maximum: ${station.maxWind} (km/h)
-                    </p>
-                    <p>
-                        Trending <i class="${station.outputWindTrend()}"></i>
-                    </p>
-                </div>
-            </td>
-            <td>
-                <div class="box subtitle is-6">
-                    <p>
-                        ${station.getLastReading().pressure} hPa
-                    </p>
-                    <p>
-                        Minimum: ${station.minPressure} (hPa) <br>
-                        Maximum: ${station.maxPressure} (hPa)
-                    </p>
-                    <p>
-                        Trending <i class="${station.outputPressureTrend()}"></i>
-                    </p>
-                </div>
-            </td>
+            #{latestreading station:station /}
+
         </tr>
         </tbody>
     </table>
