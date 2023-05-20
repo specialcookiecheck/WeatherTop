@@ -72,9 +72,3 @@ Member(m2):
   email: marge@simpson.com
   password: secret
 
-
-Member(m3):
-  firstname: Vincent
-  lastname: admin
-  email: admin@admin.com
-  password: secret

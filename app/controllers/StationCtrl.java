@@ -12,6 +12,8 @@ public class StationCtrl extends Controller {
     // renders the individual station page
     public static void index(Long id) {
         Station station = Station.findById(id);
+        station.setMapSrc();
+        station.save();
         Logger.info("Station id = " + id);
         render("station.html", station);
     }

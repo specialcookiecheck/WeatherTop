@@ -37,10 +37,6 @@ public class Station extends Model {
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
-
-        int zoomLevel = 10; // sets zoom level for map
-        // the next line sets src attribute for the Google maps iframe
-        this.mapSrc = "https://maps.google.com/maps?q=" + Double.toString(latitude) + ", " + Double.toString(longitude) + "&z=" + zoomLevel + "&output=embed";
     }
 
     // returns the last Reading for a Station (and creates a placeholder Reading if no Readings exist)
@@ -221,6 +217,13 @@ public class Station extends Model {
             }
         } else {
             return "fas fa-grip-lines";
+        }
+    }
+
+    // sets the map src if none is present
+    public void setMapSrc() {
+        if (mapSrc == null) {
+            mapSrc = "https://maps.google.com/maps?q=" + Double.toString(latitude) + ", " + Double.toString(longitude) + "&z=10" + "&output=embed";
         }
     }
 }
