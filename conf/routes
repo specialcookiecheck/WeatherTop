@@ -8,6 +8,8 @@ GET     /dashboard                                  Dashboard.index
 GET     /about                                      About.index
 GET     /admin                                      Admin.index
 GET     /account                                    Accounts.index
+GET     /history                                    History.index
+GET     /weatherinfo                                WeatherInfo.index
 
 
 GET     /stations/{id}                              StationCtrl.index

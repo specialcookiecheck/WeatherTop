@@ -20,6 +20,8 @@ References:
 - https://www.playframework.com/documentation/1.5.x/guide3
 - https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius
 - https://www.youtube.com/watch?v=wzWFQTLn8hI
+- https://www.tutorialrepublic.com/html-tutorial/html-iframes.php
+- 
 
 Image sources:
 - https://upload.wikimedia.org/wikipedia/commons/b/ba/Beaufort_wind_scale.png

@@ -1,13 +1,58 @@
 #{extends 'main.html' /}
 #{set title:'About' /}
 
-#{menu id:"about"/}
+#{welcomemenu id:"about"/}
 
-<div class="content box">
-  <p class="title">
+<div class="content box sunny">
+  <h1 class="title">
     About WeatherTop app
-  </p>
-  <p>
-    This companion to the WeatherTop station allows you to submit your own local weather readings!
-  </p>
+  </h1>
 </div>
+
+  <div class="box content">
+    <h3 class="subtitle is-5">
+      How to use this app?
+    </h3>
+    <div class="box">
+      <h4 class="subtitle is-6">
+        1. First, you need to register
+      </h4>
+      <p>After registering, you can log in</p>
+      <img src="public/images/register.png">
+    </div>
+    <div class="box">
+      <h4 class="subtitle is-6">
+        2. Then, you can start adding weather stations
+      </h4>
+      <p>A location, latitude and longitude are mandatory</p>
+      <img src="public/images/addstation.png">
+    </div>
+    <div class="box">
+      <h4 class="subtitle is-6">
+        3. You will now see the station you added on the "Dashboard"
+      </h4>
+      <p>Here you will see the readings for the station (if available), and you can open or destroy the station</p>
+      <img src="public/images/newstation.png">
+    </div>
+    <div class="box">
+      <h4 class="subtitle is-6">
+        4. Opening the station will allow you to submit a reading"
+      </h4>
+      <p>New readings require an input for weather code, temperature, wind speed, wind direction, and pressure</p>
+      <img src="public/images/addreading.png">
+    </div>
+    <div class="box">
+      <h4 class="subtitle is-6">
+        5. Once a reading has been entered and submitted, the new reading will show on the station"
+      </h4>
+      <p>Please note that for a trend to appear, a minimum of 3 readings have to be associated with a station</p>
+      <img src="public/images/readings.png">
+    </div>
+    <div class="box">
+      <h4 class="subtitle is-6">
+        6. Enjoy using your weather station and viewing your measurement history!
+      </h4>
+    </div>
+</div>
+
+
