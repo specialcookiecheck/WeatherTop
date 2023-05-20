@@ -27,7 +27,7 @@ public class Dashboard extends Controller {
 
         // sets weather characteristics if they don't yet exist for a station
         for (Station station : stations) {
-            if (station.maxPressure == 0) {
+            if (station.minPressure == 0) {
                 station.setStationMinMax();
                 station.setTrends();
                 station.getLastReading().setWeather();

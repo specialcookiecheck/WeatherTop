@@ -60,7 +60,7 @@ public class Station extends Model {
 
                 Logger.info("Reading Temp: " + readings.get(i).temperature);
                 Logger.info("Current minTemp: " + minTemp);
-                if (minTemp > readings.get(i).temperature) {
+                if (minTemp > readings.get(i).temperature || minTemp == 0) {
                     minTemp = readings.get(i).temperature;
                 }
                 Logger.info("Current maxTemp: " + maxTemp);
@@ -70,7 +70,7 @@ public class Station extends Model {
 
                 Logger.info("Reading WindSpeed: " + readings.get(i).windSpeed);
                 Logger.info("Current minWind: " + minWind);
-                if (minWind > readings.get(i).windSpeed) {
+                if (minWind > readings.get(i).windSpeed || minWind == 0) {
                     minWind = readings.get(i).windSpeed;
                 }
                 Logger.info("Current maxWind: " + maxWind);
@@ -80,7 +80,7 @@ public class Station extends Model {
 
                 Logger.info("Reading Pressure: " + readings.get(i).pressure);
                 Logger.info("Current minPressure: " + minPressure);
-                if (minPressure > readings.get(i).pressure) {
+                if (minPressure > readings.get(i).pressure || minPressure == 0) {
                     minPressure = readings.get(i).pressure;
                 }
                 Logger.info("Current maxPressure: " + maxPressure);
