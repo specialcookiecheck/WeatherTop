@@ -9,8 +9,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Entity
-public class Reading extends Model
-{
+public class Reading extends Model {
     public String date;
     public int code;
     public float temperature;
@@ -20,10 +19,13 @@ public class Reading extends Model
     public String weather;
     public String weatherIcon;
 
+    // placeholder Reading constructor
     public Reading() {
         this.date = LocalDateTime.now().toString();
         setWeather();
     }
+
+    // main constructor for Reading class
     public Reading(String date, int code, float temperature, float windSpeed, int windDirection, int pressure) {
         this.date = date;
         this.code = code;
@@ -31,10 +33,10 @@ public class Reading extends Model
         this.windSpeed = windSpeed;
         this.windDirection = windDirection;
         this.pressure = pressure;
-
         setWeather();
     }
 
+    // sets weather condition & icon
     public void setWeather() {
         if (code == 100) {
             weather = "Clear";
@@ -66,15 +68,16 @@ public class Reading extends Model
         }
     }
 
+    // converts Celsius to Fahrenheit
     public double getFahrenheit() {
-        double fahrenheitTemp = (Math.round((temperature * 9/5 + 32) * 100)) / 100;
+        double fahrenheitTemp = (Math.round((temperature * 9 / 5 + 32) * 100)) / 100;
         return fahrenheitTemp;
     }
 
+    // formats all data values in database to suitable String format for outputting
     public String getDateTimeFormatted() {
-        if(date.charAt(0) == 'I') {
-            String newstring = date.substring(8, date.length()-5);
-            //DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        if (date.charAt(0) == 'I') {
+            String newstring = date.substring(8, date.length() - 5);
             LocalDateTime datetime = LocalDateTime.parse(newstring);
             newstring = datetime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             return newstring;
@@ -85,14 +88,17 @@ public class Reading extends Model
         }
     }
 
+    // getter for weather condition
     public String getWeather() {
         return weather;
     }
 
+    // getter for weather icons
     public String getWeatherIcon() {
         return weatherIcon;
     }
 
+    // getter for Beaufort wind scale
     public String getBeaufort() {
         if (windSpeed < 1) {
             return "Calm: 0";
@@ -123,6 +129,7 @@ public class Reading extends Model
         }
     }
 
+    // getter for wind compass direction
     public String getWindCompass() {
         if (windDirection < 0) {
             return "Invalid direction";
@@ -165,22 +172,24 @@ public class Reading extends Model
         }
     }
 
+    // getter for windchill index
     public double getWindChillIndex() {
         double windChillIndex = 13.12 + (0.6215 * temperature) - (11.37 * Math.pow(windSpeed, 0.16)) + (0.3965 * temperature * Math.pow(windSpeed, 0.16));
         return windChillIndex;
     }
 
+    // getter for real feel
     public String getRealFeel() {
         String formattedRealFeel = String.format("%.2f", getWindChillIndex());
         return formattedRealFeel;
     }
 
-
+    // updates the minimum and maximum values for the station (station parameter)
     public void updateStationMinMax(Station station) {
         if (station.minWind > windSpeed) {
             station.minWind = windSpeed;
         }
-        if (station.maxWind <  windSpeed) {
+        if (station.maxWind < windSpeed) {
             station.maxWind = windSpeed;
         }
         if (station.minTemp > temperature) {

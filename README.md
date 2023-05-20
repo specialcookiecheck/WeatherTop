@@ -21,7 +21,6 @@ References:
 - https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius
 - https://www.youtube.com/watch?v=wzWFQTLn8hI
 - https://www.tutorialrepublic.com/html-tutorial/html-iframes.php
-- 
-
-Image sources:
-- https://upload.wikimedia.org/wikipedia/commons/b/ba/Beaufort_wind_scale.png
+- https://stackoverflow.com/questions/33464192/display-an-embedded-google-map-iframe-with-a-marker-on-a-certain-latitude-and-lo
+- https://www.digitalocean.com/community/tutorials/java-convert-double-to-string
+- https://gis.stackexchange.com/questions/70809/changing-default-zoom-in-google-embedded-map

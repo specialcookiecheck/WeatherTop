@@ -7,10 +7,10 @@ import play.mvc.Controller;
 
 import java.time.LocalDateTime;
 
-public class Admin extends Controller
-{
+public class Admin extends Controller {
+    // renders the admin (hidden from menu but accessible page)
     public static void index() {
         List<Reading> readings = Reading.findAll();
-        render ("admin.html", readings);
+        render("admin.html", readings);
     }
 }

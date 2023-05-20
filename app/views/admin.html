@@ -4,45 +4,46 @@
 #{menu id:"admin"/}
 
 <div class="content box">
-  <h1 class="title">
-    All readings in the database:
-  </h1>
-  <table class="ui fixed table">
-    <thead>
-    <tr>
-      <th>Submitted on</th>
-      <th>Weather code</th>
-      <th>Temperature</th>
-      <th>Wind Speed</th>
-      <th>Wind Direction</th>
-      <th>Pressure</th>
-    </tr>
-    </thead>
-    <tbody>
-    #{list items:readings, as:'reading'}
+    <h1 class="title">
+        All readings in the database:
+    </h1>
+    <table class="ui fixed table">
+        <thead>
+        <tr>
+            <th>Submitted on</th>
+            <th>Weather code</th>
+            <th>Temperature</th>
+            <th>Wind Speed</th>
+            <th>Wind Direction</th>
+            <th>Pressure</th>
+        </tr>
+        </thead>
+        <tbody>
+        #{list items:readings, as:'reading'}
 
-    <tr>
-      <td>
-        ${reading.getDateTimeFormatted()}
-      </td>
-      <td>
-        ${reading.code}
-      </td>
-      <td>
-        ${reading.temperature}
-      </td>
-      <td>
-        ${reading.windSpeed}
-      </td>
-      <td>
-        ${reading.windDirection}
-      </td>
-      <td>
-        ${reading.pressure}
-      </td>
-    </tr>
+        <tr>
+            <td>
+                ${reading.getDateTimeFormatted()}
+            </td>
+            <td>
+                ${reading.code}
+            </td>
+            <td>
+                ${reading.temperature}
+            </td>
+            <td>
+                ${reading.windSpeed}
+            </td>
+            <td>
+                ${reading.windDirection}
+            </td>
+            <td>
+                ${reading.pressure}
+            </td>
+        </tr>
 
-    #{/list}
-    </tbody>
-  </table>
+        #{/list}
+
+        </tbody>
+    </table>
 </div>

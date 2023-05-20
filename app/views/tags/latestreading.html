@@ -1,54 +1,54 @@
 <td>
-  <div class="box subtitle is-6 has-text-centered">
-    <i class="${_station.getLastReading().getWeatherIcon()} is-size-1"></i><br><br>
-    ${_station.getLastReading().getWeather()}
-  </div>
+    <div class="box subtitle is-6 has-text-centered">
+        <i class="${_station.getLastReading().getWeatherIcon()} is-size-1"></i><br><br>
+        ${_station.getLastReading().getWeather()}
+    </div>
 </td>
 <td>
-  <div class="box subtitle is-6">
-    <p>
-      ${_station.getLastReading().temperature} Celsius (C) <br>
-      ${_station.getLastReading().getFahrenheit()} Fahrenheit
-    </p>
-    <p>
-      Minimum: ${_station.minTemp} (C) <br>
-      Maximum: ${_station.maxTemp} (C)
-    </p>
-    <p>
-      Trending <i class="${_station.outputTempTrend()}"></i>
-    </p>
-  </div>
+    <div class="box subtitle is-6">
+        <p>
+            ${_station.getLastReading().temperature} Celsius (C) <br>
+            ${_station.getLastReading().getFahrenheit()} Fahrenheit
+        </p>
+        <p>
+            Minimum: ${_station.minTemp} (C) <br>
+            Maximum: ${_station.maxTemp} (C)
+        </p>
+        <p>
+            Trending <i class="${_station.outputTempTrend()}"></i>
+        </p>
+    </div>
 </td>
 <td>
-  <div class="box subtitle is-6">
-    <p>
-      ${_station.getLastReading().getBeaufort()} bft<br>
-      <i class="fas fa-compass"></i> ${_station.getLastReading().getWindCompass()}
-    </p>
-    <p>
-      Feels like: ${_station.getLastReading().getRealFeel()} (C)
-    </p>
-    <p>
-      Minimum: ${_station.minWind} (km/h) <br>
-      Maximum: ${_station.maxWind} (km/h)
-    </p>
-    <p>
-      Trending <i class="${_station.outputWindTrend()}"></i>
-    </p>
-  </div>
+    <div class="box subtitle is-6">
+        <p>
+            ${_station.getLastReading().getBeaufort()} bft<br>
+            <i class="fas fa-compass"></i> ${_station.getLastReading().getWindCompass()}
+        </p>
+        <p>
+            Feels like: ${_station.getLastReading().getRealFeel()} (C)
+        </p>
+        <p>
+            Minimum: ${_station.minWind} (km/h) <br>
+            Maximum: ${_station.maxWind} (km/h)
+        </p>
+        <p>
+            Trending <i class="${_station.outputWindTrend()}"></i>
+        </p>
+    </div>
 </td>
 <td>
-  <div class="box subtitle is-6">
-    <p>
-      ${_station.getLastReading().pressure} hPa
-    </p>
-    <p>
-      Minimum: ${_station.minPressure} (hPa) <br>
-      Maximum: ${_station.maxPressure} (hPa)
-    </p>
-    <p>
-      Trending <i class="${_station.outputPressureTrend()}"></i>
-    </p>
-  </div>
+    <div class="box subtitle is-6">
+        <p>
+            ${_station.getLastReading().pressure} hPa
+        </p>
+        <p>
+            Minimum: ${_station.minPressure} (hPa) <br>
+            Maximum: ${_station.maxPressure} (hPa)
+        </p>
+        <p>
+            Trending <i class="${_station.outputPressureTrend()}"></i>
+        </p>
+    </div>
 </td>
 </tr>

@@ -11,8 +11,7 @@ import play.Logger;
 import play.db.jpa.Model;
 
 @Entity
-public class Station extends Model
-{
+public class Station extends Model {
     public String name;
     public double latitude;
     public double longitude;
@@ -28,24 +27,26 @@ public class Station extends Model
     public String windTrend;
     public String pressureTrend;
 
+    public String mapSrc;
+
     @OneToMany(cascade = CascadeType.ALL)
     public List<Reading> readings = new ArrayList<Reading>();
 
-    public Station(String name)
-    {
-        this.name = name;
-    }
-
-    public Station(String name, double latitude, double longitude)
-    {
+    // constructor for Station class
+    public Station(String name, double latitude, double longitude) {
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
+
+        int zoomLevel = 10; // sets zoom level for map
+        // the next line sets src attribute for the Google maps iframe
+        this.mapSrc = "https://maps.google.com/maps?q=" + Double.toString(latitude) + ", " + Double.toString(longitude) + "&z=" + zoomLevel + "&output=embed";
     }
 
+    // returns the last Reading for a Station (and creates a placeholder Reading if no Readings exist)
     public Reading getLastReading() {
         Reading lastReading;
-        if(readings.size() > 0) {
+        if (readings.size() > 0) {
             lastReading = readings.get(readings.size() - 1);
         } else {
             lastReading = new Reading(); // generates an empty reading to act as a placeholder
@@ -53,11 +54,12 @@ public class Station extends Model
         return lastReading;
     }
 
+    // sets the min and max weather values for a Station, and clears them if all readings have been deleted
     public void setStationMinMax() {
         Logger.info("Setting StationMinMax");
 
         if (readings.size() > 0) {
-            for (int i = 0; i < readings.size()-1; i++) {
+            for (int i = 0; i < readings.size() - 1; i++) {
                 Logger.info("Reading" + i + readings.get(i));
 
                 Logger.info("Reading Temp: " + readings.get(i).temperature);
@@ -76,7 +78,7 @@ public class Station extends Model
                     minWind = readings.get(i).windSpeed;
                 }
                 Logger.info("Current maxWind: " + maxWind);
-                if (maxWind <  readings.get(i).windSpeed) {
+                if (maxWind < readings.get(i).windSpeed) {
                     maxWind = readings.get(i).windSpeed;
                 }
 
@@ -98,9 +100,9 @@ public class Station extends Model
             minPressure = 0;
             maxPressure = 0;
         }
-
     }
 
+    // activates setters for all trends
     public void setTrends() {
         if (readings.size() > 2) {
             Logger.info("Setting trends");
@@ -110,12 +112,13 @@ public class Station extends Model
         }
     }
 
+    // calculates and sets the temperature trend
     private void setTempTrend() {
         Logger.info("Setting temp trend");
 
-        Reading currentReading = readings.get(readings.size()-1);
-        Reading previousReading = readings.get(readings.size()-2);
-        Reading twoToLastReading = readings.get(readings.size()-3);
+        Reading currentReading = readings.get(readings.size() - 1);
+        Reading previousReading = readings.get(readings.size() - 2);
+        Reading twoToLastReading = readings.get(readings.size() - 3);
 
         float currentTemp = currentReading.temperature;
         float previousTemp = previousReading.temperature;
@@ -130,12 +133,13 @@ public class Station extends Model
         }
     }
 
+    // calculates and sets the wind trend
     private void setWindTrend() {
         Logger.info("Setting wind trend");
 
-        Reading currentReading = readings.get(readings.size()-1);
-        Reading previousReading = readings.get(readings.size()-2);
-        Reading twoToLastReading = readings.get(readings.size()-3);
+        Reading currentReading = readings.get(readings.size() - 1);
+        Reading previousReading = readings.get(readings.size() - 2);
+        Reading twoToLastReading = readings.get(readings.size() - 3);
 
         float currentWind = currentReading.windSpeed;
         float previousWind = previousReading.windSpeed;
@@ -154,12 +158,13 @@ public class Station extends Model
         }
     }
 
+    // calculates and sets the pressure trend
     private void setPressureTrend() {
         Logger.info("Setting pressure trend");
 
-        Reading currentReading = readings.get(readings.size()-1);
-        Reading previousReading = readings.get(readings.size()-2);
-        Reading twoToLastReading = readings.get(readings.size()-3);
+        Reading currentReading = readings.get(readings.size() - 1);
+        Reading previousReading = readings.get(readings.size() - 2);
+        Reading twoToLastReading = readings.get(readings.size() - 3);
 
         float currentPressure = currentReading.pressure;
         float previousPressure = previousReading.pressure;
@@ -174,6 +179,7 @@ public class Station extends Model
         }
     }
 
+    // returns trend icon class for temperature trend
     public String outputTempTrend() {
         if (readings.size() > 2) {
             if (tempTrend.equals("Up")) {
@@ -188,6 +194,7 @@ public class Station extends Model
         }
     }
 
+    // returns trend icon class for wind trend
     public String outputWindTrend() {
         if (readings.size() > 2) {
             if (windTrend.equals("Up")) {
@@ -202,7 +209,8 @@ public class Station extends Model
         }
     }
 
-    public String outputPressureTrend () {
+    // returns trend icon class for pressure trend
+    public String outputPressureTrend() {
         if (readings.size() > 2) {
             if (pressureTrend.equals("Up")) {
                 return "fas fa-arrow-trend-up has-text-danger";
@@ -215,5 +223,4 @@ public class Station extends Model
             return "fas fa-grip-lines";
         }
     }
-
 }

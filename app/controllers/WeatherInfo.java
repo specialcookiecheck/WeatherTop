@@ -3,10 +3,10 @@ package controllers;
 import play.*;
 import play.mvc.*;
 
-public class WeatherInfo extends Controller
-{
+public class WeatherInfo extends Controller {
+    // renders the weather info page
     public static void index() {
-        Logger.info("Rendering weather FAQ");
-        render ("weatherinfo.html");
+        Logger.info("Rendering weather info");
+        render("weatherinfo.html");
     }
 }

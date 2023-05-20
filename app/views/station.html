@@ -4,6 +4,9 @@
 #{menu id:"dashboard"/}
 
 <div class="content box">
+    <tr>
+        <iframe src="${station.mapSrc}" width="100%" height="100"></iframe>
+    </tr>
     <table class="table">
         <thead class="title">
         <tr class="sunny has-text-centered">
@@ -12,7 +15,6 @@
             <th class="has-text-link">Temperature <i class="fas fa-temperature-half main-icon"></i></th>
             <th class="has-text-link">Wind <i class="fa fa-wind main-icon"></i></th>
             <th class="has-text-link">Pressure <i class="fa fa-layer-group main-icon"></i></th>
-            </th>
         </tr>
         </thead>
         <tbody class="has-background-link-dark">
@@ -35,7 +37,9 @@
         #{listreadings station:station /}
     </div>
 </div>
+
 <h3 class="subtitle is-5">
     Add a new reading
 </h3>
+
 #{addreading station:station /}
