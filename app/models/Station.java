@@ -55,7 +55,7 @@ public class Station extends Model {
         Logger.info("Setting StationMinMax");
 
         if (readings.size() > 0) {
-            for (int i = 0; i < readings.size() - 1; i++) {
+            for (int i = 0; i < readings.size(); i++) {
                 Logger.info("Reading" + i + readings.get(i));
 
                 Logger.info("Reading Temp: " + readings.get(i).temperature);

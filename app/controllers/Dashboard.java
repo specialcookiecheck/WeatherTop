@@ -25,7 +25,7 @@ public class Dashboard extends Controller {
             }
         });
 
-        // sets weather characteristics if they don't yet exist for a station
+        // sets weather characteristics for each station if they are not yet present
         for (Station station : stations) {
             if (station.minPressure == 0) {
                 station.setStationMinMax();
