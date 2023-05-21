@@ -27,7 +27,8 @@ public class StationCtrl extends Controller {
         station.setStationMinMax();
         station.save();
         reading.delete();
-        render("station.html", station);
+        redirect("/stations/" + id);
+        //render("station.html", station);
     }
 
     // adds a reading to the station
@@ -37,7 +38,6 @@ public class StationCtrl extends Controller {
         Reading reading = new Reading(date, code, temperature, windSpeed, windDirection, pressure);
         station.readings.add(reading);
         reading.updateStationMinMax(station);
-        //station.readings.add(reading);
         station.setTrends();
         station.save();
         redirect("/stations/" + id);

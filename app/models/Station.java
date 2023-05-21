@@ -53,6 +53,12 @@ public class Station extends Model {
     // sets the min and max weather values for a Station, and clears them if all readings have been deleted
     public void setStationMinMax() {
         Logger.info("Setting StationMinMax");
+        minTemp = 0;
+        maxTemp = 0;
+        minWind = 0;
+        maxWind = 0;
+        minPressure = 0;
+        maxPressure = 0;
 
         if (readings.size() > 0) {
             for (int i = 0; i < readings.size(); i++) {
@@ -88,13 +94,6 @@ public class Station extends Model {
                     maxPressure = readings.get(i).pressure;
                 }
             }
-        } else {
-            minTemp = 0;
-            maxTemp = 0;
-            minWind = 0;
-            maxWind = 0;
-            minPressure = 0;
-            maxPressure = 0;
         }
     }
 
