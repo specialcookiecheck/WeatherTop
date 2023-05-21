@@ -186,6 +186,9 @@ public class Reading extends Model {
 
     // updates the minimum and maximum values for the station (station parameter)
     public void updateStationMinMax(Station station) {
+        if (station.minPressure == 0) {
+            station.setStationMinMax();
+        }
         if (station.minWind > windSpeed) {
             station.minWind = windSpeed;
         }
